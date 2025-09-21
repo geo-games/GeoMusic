@@ -4,14 +4,13 @@ import os
 app = Flask(__name__)
 
 # Mappa a zenéknek és borítóknak
-MUSIC_DIR = 'musics'
+MUSIC_DIR = 'musical'
 COVER_DIR = 'covers'
 
 # Zenék JSON
 tracks = [
-    {"title": "Song 1", "file": "song1.mp3", "cover": "cover1.jpg"},
-    {"title": "Song 2", "file": "song2.mp3", "cover": "cover2.jpg"},
-    {"title": "Song 3", "file": "song3.mp3", "cover": "cover3.jpg"}
+    {"title": "Song 1", "file": "song1.mp3", "cover": "cover1.png"},
+    {"title": "Song 2", "file": "song2.mp3", "cover": "cover2.png"},
 ]
 
 @app.route('/tracks')
