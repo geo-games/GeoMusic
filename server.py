@@ -3,11 +3,7 @@ import os
 
 app = Flask(__name__)
 
-# Mappa a zenéknek és borítóknak
-MUSIC_DIR = 'musical'
-COVER_DIR = 'covers'
-
-# Zenék JSON
+# Zenék JSON – csak a fájlnevek
 tracks = [
     {"title": "Song 1", "file": "song1.mp3", "cover": "cover1.png"},
     {"title": "Song 2", "file": "song2.mp3", "cover": "cover2.png"},
@@ -19,11 +15,11 @@ def get_tracks():
 
 @app.route('/musics/<path:filename>')
 def serve_music(filename):
-    return send_from_directory(MUSIC_DIR, filename)
+    return send_from_directory('.', filename)  # gyökérkönyvtárból szolgálja ki
 
 @app.route('/covers/<path:filename>')
 def serve_cover(filename):
-    return send_from_directory(COVER_DIR, filename)
+    return send_from_directory('.', filename)  # gyökérkönyvtárból szolgálja ki
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
